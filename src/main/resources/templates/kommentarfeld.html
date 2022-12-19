@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reise Nach Thailand </title>
+</head>
+<body>
+<ul th:each="eintrag : ${kommentarfelde}">
+  <li>
+    <p><span th:text="${eintrag.name}"/>: <span th:text="${eintrag.text}"/></p>
+    <ul>
+      <li th:each="kommentar : ${eintrag.kommentare}">
+        <span th:text="${kommentar.text}"></span>
+      </li>
+    </ul>
+  </li>
+</ul>
+<form th:object="${kommentarfeld}" action="/neuerEintrag" method="post">
+  <p>Name: <input type="text" th:field="*{name}"></p>
+  <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
+  <p>Kommentarfeld: <input type="text" th:field="*{text}"></p>
+  <p th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></p>
+
+  <p><input type="submit" value="Eintrag speichern"></p>
+</form>
+</body>
+</html>

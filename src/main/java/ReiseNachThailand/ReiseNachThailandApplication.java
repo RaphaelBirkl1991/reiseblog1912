@@ -1,15 +1,13 @@
-package SpringThymeleaf.SpringUebung;
+package ReiseNachThailand;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
-
 @SpringBootApplication
-public class SpringUebungApplication {
+public class ReiseNachThailandApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringUebungApplication.class, args);
+		SpringApplication.run(ReiseNachThailandApplication.class, args);
 	}
 
 }
