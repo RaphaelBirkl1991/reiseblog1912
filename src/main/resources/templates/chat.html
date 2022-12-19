@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+
+<div th:each="message : ${messages}">
+    <span th:text="${#temporals.format(message.timestamp,'dd.mm.yy hh:mm:ss')}" />
+    <span th:text="${message.sender + ':'}" style="font-weight: bold"/>
+    <span th:text="${message.content}" />
+</div>
+
+<h3>Filter</h3>
+<form method="get">
+    <input type="text" name="senderFilter" value="*****">
+    <input type="submit">
+</form>
+
+<h3>Append</h3>
+<form method="post">
+
+<!--    sender und content erscheinen in der URL Zeile. Das sind @RequestParam´s und werden im -->
+<!--    @PostMapping aufgegriffen.-->
+
+    <input type="text" name="sender">
+    <input type="text" name="content">
+    <input type="submit">
+</form>
+
+
+
+
+
+
+
+</body>
+</html>
